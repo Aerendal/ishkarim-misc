@@ -1,103 +1,102 @@
 # ishkarim-misc
 
-> Różne: tematy niepasujące do głównych obszarów — algorytmy, narzędzia, eksperymenty.
+> **Eksperymenty i narzędzia — algorytmy, PoC, tematy przekrojowe**
 
-## Instalacja
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)]()
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)]()
+[![License](https://img.shields.io/badge/license-MIT-green)]()
+[![CPU-only](https://img.shields.io/badge/CPU-only-orange)]()
+
+## Problem, który rozwiązujemy
+
+- Repozytorium sprawdzonych pomysłów które nie pasują do głównych obszarów
+- Algorytmy biologiczne/giełdowe z dokumentacją ograniczeń
+- Małe narzędzia CLI do jednorazowych zadań
+
+Pełna lista → [docs/PROBLEMS.md](docs/PROBLEMS.md)
+
+## Szybki start
 
 ```bash
+# Instalacja
 pip install -e projects/ishkarim-misc
+
+# Demo (10 sekund)
+python projects/ishkarim-misc/demo.py
 ```
 
-Lub lokalnie z tego repozytorium:
-
-```bash
-cd projects/ishkarim-misc
-pip install -e ".[dev]"
-```
-
-## Użycie
+## Użycie w kodzie
 
 ```python
 import ishkarim_misc as m
 
-# Lista dostępnych modułów
-print(m.MODULES)
-
-# Wczytaj indeks wiedzy
+# Wszystkie 30 katalogi wiedzy obszaru 'misc'
 docs = m.load_knowledge_index()
+print(f"{len(docs)} katalogów | obszar: {m.__area__}")
+
+# Narzędzia pomocnicze
+from ishkarim_misc.utils import read_work_md, extract_tags, extract_python_blocks
 ```
 
-## Obszar tematyczny
+## Dla kogo
 
-Ten projekt agreguje wiedzę z **30 katalogów** obszaru `misc`:
+- Inspiracja dla nowych projektów (sprawdź zanim wynajdujesz koło od nowa)
+- Szybki prototyp do pokazania klientowi zanim podjęta decyzja
+- Zbiór 'gotowców' — kopiuj fragmenty kodu do własnych projektów
 
-- `Apple kupuje izraelski startup Q.ai za ok. 2 mld USD`
-- `Bramki semantycznej spójności`
-- `Brytyjski regulator chce „AI opt‑out” dla wydawców_04`
-- `Building Systems That Learn from Errors`
-- `Dlaczego produkcja chipów na Tajwanie ma znaczenie_04`
-- `Dokumentacja produktu`
-- `Dwuminutowe porządki w notatkach z pomysłami`
-- `Fresh experimental AI projects surfaced`
-- … i 22 więcej (pełna lista w [MODULES.md](MODULES.md))
+## Dokumentacja
 
-## Przykładowe źródła
+| Plik | Zawartość |
+|------|-----------|
+| [docs/PROBLEMS.md](docs/PROBLEMS.md) | Co rozwiązuje / czego nie / znane problemy |
+| [docs/api.md](docs/api.md) | Dokumentacja API |
+| [docs/overview.md](docs/overview.md) | Przegląd obszaru |
+| [docs/sources.md](docs/sources.md) | Źródłowe katalogi wiedzy |
+| [MODULES.md](MODULES.md) | Pełny indeks 30 katalogów |
 
-### Apple kupuje izraelski startup Q.ai za ok. 2 mld USD
+## Testy i benchmarki
 
-# Apple kupuje izraelski startup Q.ai za ok. 2 mld USD
-## 0-Metadane
-- Pliki: 1
-- Tagi: Apple, akwizycja, Q.ai, silent-speech, audio-AI, AirPods, Vision-Pro, Siri, izrael, stealth-startup
-- Status: done
+```bash
+# Testy jednostkowe
+pytest tests/test_misc.py -v
 
-### Bramki semantycznej spójności
+# Testy domenowe (z prawdziwymi danymi)
+pytest tests/test_misc_domain.py -v
 
-# WORK — Bramki semantycznej spójności
-> Notatki robocze z deep-index. Ostatnia aktualizacja: 2026-02-25.
----
-## 0. Metadane
-- **Katalog:** Bramki semantycznej spójności
-
-### Brytyjski regulator chce „AI opt‑out” dla wydawców_04
-
-# WORK: Brytyjski regulator chce „AI opt‑out” dla wydawców_04
-## 0-Metadane
-- Katalog: Brytyjski regulator chce „AI opt‑out” dla wydawców_04
-- Pliki: 13 (z treścią >120 B); łącznie 15
-- Tagi: regulacje, AI-prawo, CMA, Google, wydawcy, compliance, opt-out
-
+# Benchmarki wydajnościowe
+python benchmarks/bench_misc.py --quick
+```
 
 ## Struktura projektu
 
 ```
 ishkarim-misc/
-├── pyproject.toml        # installable package
+├── demo.py                    ← uruchom mnie
+├── pyproject.toml
 ├── README.md
-├── MODULES.md            # pełny indeks 30 katalogów-źródeł
-├── src/
-│   └── ishkarim_misc/
-│       ├── __init__.py   # publiczne API
-│       ├── utils.py      # wspólne narzędzia
-│       └── *.py          # kod wyekstrahowany z WORK.md
+├── MODULES.md                 ← 30 katalogów-źródeł
+├── docs/
+│   ├── PROBLEMS.md            ← co rozwiązuje / czego nie
+│   ├── api.md                 ← dokumentacja API
+│   ├── overview.md
+│   └── sources.md
+├── src/ishkarim_misc/
+│   ├── __init__.py            ← MODULES list + load_knowledge_index()
+│   ├── utils.py               ← read_work_md, extract_tags, extract_python_blocks
+│   └── snippets/              ← kod z WORK.md (referencyjny)
 ├── tests/
-│   ├── __init__.py
-│   └── test_misc.py
-└── docs/
-    ├── overview.md
-    └── sources.md
+│   ├── test_misc.py         ← testy jednostkowe
+│   └── test_misc_domain.py  ← testy domenowe
+└── benchmarks/
+    └── bench_misc.py        ← benchmarki wydajnościowe
 ```
 
-## Testy
+## Ograniczenia
 
-```bash
-pytest projects/ishkarim-misc/tests/ -v
-```
-
-## Źródło danych
-
-Katalogi źródłowe znajdują się w katalogu głównym repozytorium Ishkarim.
-Każdy katalog zawiera `WORK.md` (notatki badawcze) i `TAGS.md` (metadane).
+> ⚠️ To projekt **referencyjny** — wzorce i wiedza, nie gotowa biblioteka produkcyjna.
+> Przed wdrożeniem produkcyjnym przeczytaj [docs/PROBLEMS.md](docs/PROBLEMS.md).
 
 ---
-*Wygenerowano automatycznie przez `scripts/build_projects.py`*
+
+*Część ekosystemu [Ishkarim](../../README.md) — 30 katalogów wiedzy obszaru `misc`*
+*Wygenerowano: 2026-03-11 | `scripts/build_projects.py` + `scripts/enrich_projects.py`*
