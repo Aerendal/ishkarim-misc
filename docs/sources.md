@@ -5,7 +5,7 @@
 > Łącznie unikalnych URL: **529**
 
 
-## 📄 Artykuły naukowe (4)
+## Artykuły naukowe (4)
 
 - <https://arxiv.org/abs/2405.00823>  
   _źródło: `Fresh experimental AI projects surfaced`_
@@ -16,7 +16,7 @@
 - <https://arxiv.org/pdf/2601.20882>  
   _źródło: `Fresh experimental AI projects surfaced`_
 
-## 🐙 Repozytoria GitHub (51)
+## Repozytoria GitHub (51)
 
 - <https://github.com/Battle-Road-Labs/3D-Tiles-For-Godot>  
   _źródło: `Offline demo wiedza połączona z 3D wizualizacją_04`_
@@ -121,7 +121,7 @@
 - <https://github.com/youngfish42/Awesome-FL>  
   _źródło: `Fresh experimental AI projects surfaced`_
 
-## 📚 Dokumentacja (52)
+## Dokumentacja (52)
 
 - <https://developers.openai.com/api/docs/assistants/migration/>  
   _źródło: `OpenAI wycofuje starsze modele 13 lutego`, `Zmiany w API OpenAI: ważne terminy 2026`_
@@ -228,7 +228,7 @@
 - <https://www.tug.org/docs/liang/liang-thesis.pdf>  
   _źródło: `Offline’owy łańcuch narzędzi: Knuth–Plass i hyphen`_
 
-## 🔗 Inne zasoby (422)
+## Inne zasoby (422)
 
 - <https://json-schema.org/draft/2020-12/schema>  
   _źródło: `Bramki semantycznej spójności`, `Building Systems That Learn from Errors`, `Fresh experimental AI projects surfaced` +5_
@@ -391,7 +391,7 @@
 - <https://developers.redhat.com/articles/2025/10/21/krkn-ai-feedback-driven-approach-chaos-engineering>  
   _źródło: `Fresh experimental AI projects surfaced`_
 
-## 📁 Katalogi źródłowe
+## Katalogi źródłowe
 
 Obszar `misc` zawiera **30** katalogów:
 
